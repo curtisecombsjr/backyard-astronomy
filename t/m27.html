@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumbbell Nebula · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="crescent.html">← Previous<br><small>Crescent Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="eagle.html">Next →<br><small>Eagle Nebula</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/m27.jpg" alt="Dumbbell Nebula"><img class="ann" src="../img/m27_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Dumbbell Nebula</h2>
+      <div class="cat">M27 · NGC 6853</div>
+      <ul class="facts">
+        <li>In the constellation Vulpecula · 1,300 light-years from Earth</li>
+        <li>30 minutes · 30 × 60 s · 1 night · Nov 7, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">The Dumbbell Nebula is the shell of gas thrown off by a dying star, about 3 light-years across. Charles Messier found it in 1764, the first of these dying-star shells ever seen. About 10,000 years ago the star puffed off its outer layers, leaving its hot bare core. That core&#x27;s ultraviolet light makes the gas glow: oxygen shines blue-green near the star, while hydrogen and nitrogen glow red at the edges, where the starlight is used up.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="crescent.html">← Previous<br><small>Crescent Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="eagle.html">Next →<br><small>Eagle Nebula</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

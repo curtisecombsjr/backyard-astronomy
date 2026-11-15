@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGC 7331 and Stephan&#x27;s Quintet · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="m15.html">← Previous<br><small>Great Pegasus Cluster</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m74.html">Next →<br><small>Phantom Galaxy</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/ngc7331.jpg" alt="NGC 7331 and Stephan&#x27;s Quintet"><img class="ann" src="../img/ngc7331_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>NGC 7331 and Stephan&#x27;s Quintet</h2>
+      <div class="cat">Deer Lick Group · Caldwell 30 · HCG 92 · Arp 319</div>
+      <ul class="facts">
+        <li>In the constellation Pegasus · NGC 7331 is 45 million light-years from Earth</li>
+        <li>2.6 hours · 77 × 120 s · 1 night · Nov 9, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">NGC 7331 is a spiral galaxy 45 million light-years away and about 140,000 light-years across. The small galaxies just below it look like its companions. They are not; they lie six to nine times farther away. To the right is Stephan&#x27;s Quintet, the first tight group of galaxies ever discovered, in 1877. Four of its galaxies are colliding, 290 million light-years away. The fifth, bluer one is in the foreground, near NGC 7331&#x27;s distance.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="m15.html">← Previous<br><small>Great Pegasus Cluster</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m74.html">Next →<br><small>Phantom Galaxy</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

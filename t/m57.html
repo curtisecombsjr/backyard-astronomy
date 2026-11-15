@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ring Nebula · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="pelican.html">← Previous<br><small>Pelican Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="rosette.html">Next →<br><small>Rosette Nebula</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/m57.jpg" alt="Ring Nebula"><img class="ann" src="../img/m57_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Ring Nebula</h2>
+      <div class="cat">M57 · NGC 6720 · IC 1296 · HD 175577</div>
+      <ul class="facts">
+        <li>In the constellation Lyra · 2,600 light-years from Earth</li>
+        <li>9 minutes · 18 × 30 s · 1 night · Sep 22, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">The Ring Nebula is the outer layers of a dying star, blown off roughly 4,500 years ago. We look at it almost straight down its axis, so a thick, hollow doughnut of gas looks like a ring about one light-year across. The star&#x27;s bare core, at 120,000 °C, lights the gas with ultraviolet. Oxygen glows teal close to the star, where that light is most energetic. Hydrogen and nitrogen glow red at the outer edge.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="pelican.html">← Previous<br><small>Pelican Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="rosette.html">Next →<br><small>Rosette Nebula</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

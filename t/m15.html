@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Great Pegasus Cluster · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="m31.html">← Previous<br><small>Andromeda Galaxy</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="ngc7331.html">Next →<br><small>NGC 7331 and Stephan&#x27;s Quintet</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/m15.jpg" alt="Great Pegasus Cluster"><img class="ann" src="../img/m15_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Great Pegasus Cluster</h2>
+      <div class="cat">M15 · NGC 7078</div>
+      <ul class="facts">
+        <li>In the constellation Pegasus · 35,000 light-years from Earth</li>
+        <li>1.1 hours · 122 × 30 s + 20 × 10 s · 1 night · Nov 7, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">M15 is a ball of half a million Suns&#x27; worth of stars, all born nearly 13 billion years ago, when the Milky Way was young. Close passes between stars have slowly sorted them: heavy stars sank toward the middle while light ones were flung outward. The core collapsed under this, packing over 100,000 Suns&#x27; worth of stars into each cubic light-year at the center. The orange stars are red giants, old stars that swelled and cooled as their fuel ran low.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="m31.html">← Previous<br><small>Andromeda Galaxy</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="ngc7331.html">Next →<br><small>NGC 7331 and Stephan&#x27;s Quintet</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

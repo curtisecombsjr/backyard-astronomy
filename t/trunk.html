@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elephant&#x27;s Trunk Nebula · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="eveil.html">← Previous<br><small>Eastern Veil Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="ghost.html">Next →<br><small>Ghost of Cassiopeia</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/trunk.jpg" alt="Elephant&#x27;s Trunk Nebula"><img class="ann" src="../img/trunk_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Elephant&#x27;s Trunk Nebula</h2>
+      <div class="cat">IC 1396A · within IC 1396 / Sh2-131</div>
+      <ul class="facts">
+        <li>In the constellation Cepheus · 3,000 light-years from Earth</li>
+        <li>13.0 hours · 156 × 300 s · 7 nights · Oct 18 – Nov 11, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro + ASI2600MM Pro · L-Ultimate Hα/OIII</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">The Elephant&#x27;s Trunk is a column of dense gas and dust over 20 light-years long, on the edge of the glowing cloud IC 1396. The massive star HD 206267 shines on it from at least 14 light-years away. Its ultraviolet light boils gas off the trunk&#x27;s surface, which makes the bright rim. The same light squeezes the gas inside. That squeeze has set off the birth of more than 140 stars in and around the trunk.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="eveil.html">← Previous<br><small>Eastern Veil Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="ghost.html">Next →<br><small>Ghost of Cassiopeia</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horsehead Nebula · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="helix.html">← Previous<br><small>Helix Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m78.html">Next →<br><small>Messier 78</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/horsehead.jpg" alt="Horsehead Nebula"><img class="ann" src="../img/horsehead_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Horsehead Nebula</h2>
+      <div class="cat">Barnard 33 · IC 434</div>
+      <ul class="facts">
+        <li>In the constellation Orion · 1,300 light-years from Earth</li>
+        <li>10.9 hours · 131 × 300 s · 7 nights · Oct 15 – Nov 12, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro + ASI2600MM Pro · L-Ultimate Hα/OIII</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">The Horsehead is a pillar of cold, dense gas and dust about 1,300 light-years away. It juts from the edge of a giant dark cloud, which fills the lower half of this picture. The hot star Sigma Orionis (not pictured here) shines on that edge. Its ultraviolet light strips electrons from the hydrogen, which makes it glow. That glowing sheet is IC 434. The Horsehead is too thick for the light to pass through, so it stands in silhouette.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="helix.html">← Previous<br><small>Helix Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m78.html">Next →<br><small>Messier 78</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messier 78 · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="horsehead.html">← Previous<br><small>Horsehead Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="monkeyhead.html">Next →<br><small>Monkey Head Nebula</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/m78.jpg" alt="Messier 78"><img class="ann" src="../img/m78_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Messier 78</h2>
+      <div class="cat">M78 · NGC 2068 · NGC 2071 · HH 24</div>
+      <ul class="facts">
+        <li>In the constellation Orion · 1,300 light-years from Earth</li>
+        <li>2.8 hours · 165 × 60 s · 2 nights · Nov 9 – 10, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">M78 is a cloud of dust about 4 light-years across, lit from inside by a pair of young stars. Their light bounces off the dust, and dust scatters blue light best, so M78 shines blue. The stars around it formed about 2 million years ago. Four in five still have the dusty disks that planets form in. The red glow at the right is Barnard&#x27;s Loop, the rim of a vast hollow cleared by Orion&#x27;s stars. M78&#x27;s cloud lies along the same rim.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="horsehead.html">← Previous<br><small>Horsehead Nebula</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="monkeyhead.html">Next →<br><small>Monkey Head Nebula</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

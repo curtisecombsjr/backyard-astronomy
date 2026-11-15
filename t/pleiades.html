@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pleiades · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="m74.html">← Previous<br><small>Phantom Galaxy</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m33.html">Next →<br><small>Triangulum Galaxy</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/pleiades.jpg" alt="Pleiades"><img class="ann" src="../img/pleiades_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Pleiades</h2>
+      <div class="cat">M45 · Melotte 22 · the Seven Sisters · NGC 1432 · NGC 1435</div>
+      <ul class="facts">
+        <li>In the constellation Taurus · 444 light-years from Earth</li>
+        <li>1.3 hours · 76 × 60 s · 1 night · Nov 6, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">The Pleiades, or Seven Sisters, is a cluster of more than a thousand young stars, 444 light-years away. They formed together about 100 million years ago. The blue glow is not left over from their birth: the cluster is drifting through an unrelated cloud of dust, and the dust reflects the hot blue starlight. The fine parallel streaks show the dust being combed out as the stars pass through it.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="m74.html">← Previous<br><small>Phantom Galaxy</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="m33.html">Next →<br><small>Triangulum Galaxy</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>

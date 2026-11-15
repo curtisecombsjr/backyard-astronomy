@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phantom Galaxy · Backyard Nebulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header style="padding:36px 24px 22px"><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)"><a href="../index.html">Backyard Nebulae</a></h1></header>
+<div class="pager"><a class="prev" rel="prev" href="ngc7331.html">← Previous<br><small>NGC 7331 and Stephan&#x27;s Quintet</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="pleiades.html">Next →<br><small>Pleiades</small></a></div>
+<section style="margin-top:24px">
+  <div class="frame"><img class="main" src="../img/m74.jpg" alt="Phantom Galaxy"><img class="ann" src="../img/m74_annotated.jpg" alt="" loading="lazy"></div>
+  <div class="meta">
+    <div>
+      <h2>Phantom Galaxy</h2>
+      <div class="cat">M74 · NGC 628 · UGC 1149 · PGC 5974</div>
+      <ul class="facts">
+        <li>In the constellation Pisces · 32 million light-years from Earth</li>
+        <li>3.3 hours · 98 × 120 s · 2 nights · Nov 9 – 10, 2026</li>
+        <li>Askar 120 · ASI2600MC Pro · no filter</li>
+      </ul>
+      <button class="toggle">Show labels</button>
+    </div>
+    <div>
+    <p class="blurb">M74 is a spiral galaxy 32 million light-years away and nearly 100,000 light-years across, about the size of our Milky Way. We see it almost exactly face-on, so its two arms lie open. The yellow centre is old stars. The blue arms are young, hot stars, and the faint pink specks are hydrogen clouds that newborn massive stars make glow. Massive stars burn out within a few million years, and at least three in M74 have exploded since 2002.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a class="prev" rel="prev" href="ngc7331.html">← Previous<br><small>NGC 7331 and Stephan&#x27;s Quintet</small></a><a class="mid" href="../index.html">All images</a><a class="next" rel="next" href="pleiades.html">Next →<br><small>Pleiades</small></a></div>
+<footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
+<div id="zoom"><img alt=""></div>
+<script>
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
+  f.addEventListener('click', () => {
+    z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
+    z.style.display = 'flex';
+  });
+  z.addEventListener('click', () => z.style.display = 'none');
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') z.style.display = 'none';
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const l = document.querySelector('a[rel=prev]'), r = document.querySelector('a[rel=next]');
+    if (e.key === 'ArrowLeft' && l) location.href = l.href;
+    if (e.key === 'ArrowRight' && r) location.href = r.href;
+  });
+</script>
+</body>
+</html>
