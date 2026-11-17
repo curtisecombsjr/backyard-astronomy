@@ -45,6 +45,10 @@ section { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .wlinks .sep { margin: 0 12px; color: var(--line); color: #3a3f4b; }
 .wlinks a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
 .wlinks a:hover { color: var(--gold); border-color: var(--gold); }
+header p.dl { font-size: .9rem; margin-top: 18px; }
+header p.dl .sep { margin: 0 12px; color: #3a3f4b; }
+header p.dl a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+header p.dl a:hover { color: var(--gold); border-color: var(--gold); }
 footer { color: var(--muted); text-align: center; font-size: .85rem; padding: 90px 24px 60px; }
 #zoom { position: fixed; inset: 0; background: rgba(0,0,0,.95); display: none; align-items: center; justify-content: center; z-index: 10; cursor: zoom-out; }
 #zoom img { max-width: 98vw; max-height: 96vh; }
