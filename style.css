@@ -40,8 +40,9 @@ section { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .toggle:hover { border-color: var(--gold); color: var(--gold); }
 .wlinks { display: none; margin: 12px 0 0; padding: 0; list-style: none; font-size: .9rem; }
 .wlinks.open { display: block; }
-.wlinks li { padding: 6px 0; border-top: 1px solid var(--line); color: var(--muted); display: flex; gap: 14px; }
-.wlinks li b { color: var(--text); font-weight: 500; margin-right: auto; }
+.wlinks li { padding: 6px 0; border-top: 1px solid var(--line); color: var(--muted); }
+.wlinks li b { color: var(--text); font-weight: 500; }
+.wlinks .sep { margin: 0 12px; color: var(--line); color: #3a3f4b; }
 .wlinks a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
 .wlinks a:hover { color: var(--gold); border-color: var(--gold); }
 footer { color: var(--muted); text-align: center; font-size: .85rem; padding: 90px 24px 60px; }
