@@ -35,18 +35,15 @@ section { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .facts { margin: 18px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .9rem; }
 .facts li { padding: 7px 0; border-top: 1px solid var(--line); }
 .blurb { margin: 0 0 1em; font-size: 1.04rem; color: #d6d3cc; }
-.toggle { margin-top: 18px; background: none; border: 1px solid var(--line); color: var(--text); font: 500 .85rem Inter, sans-serif;
+.toggle { margin: 18px 8px 0 0; background: none; border: 1px solid var(--line); color: var(--text); font: 500 .85rem Inter, sans-serif;
           padding: 8px 14px; border-radius: 4px; cursor: pointer; }
 .toggle:hover { border-color: var(--gold); color: var(--gold); }
-.walls { margin-top: 44px; }
-.walls h3 { font: 600 1.5rem/1.2 "Cormorant Garamond", Georgia, serif; color: var(--gold); letter-spacing: .04em; margin: 0 0 14px; }
-.walls .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-.walls figure { margin: 0; }
-.walls figure img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
-.walls figcaption { margin-top: 8px; font-size: .9rem; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; }
-.walls figcaption b { color: var(--text); font-weight: 500; margin-right: auto; }
-.walls figcaption a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
-.walls figcaption a:hover { color: var(--gold); border-color: var(--gold); }
+.wlinks { display: none; margin: 12px 0 0; padding: 0; list-style: none; font-size: .9rem; }
+.wlinks.open { display: block; }
+.wlinks li { padding: 6px 0; border-top: 1px solid var(--line); color: var(--muted); display: flex; gap: 14px; }
+.wlinks li b { color: var(--text); font-weight: 500; margin-right: auto; }
+.wlinks a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.wlinks a:hover { color: var(--gold); border-color: var(--gold); }
 footer { color: var(--muted); text-align: center; font-size: .85rem; padding: 90px 24px 60px; }
 #zoom { position: fixed; inset: 0; background: rgba(0,0,0,.95); display: none; align-items: center; justify-content: center; z-index: 10; cursor: zoom-out; }
 #zoom img { max-width: 98vw; max-height: 96vh; }

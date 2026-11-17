@@ -23,16 +23,14 @@
         <li>Askar 120 · ASI2600MC Pro · no filter</li>
       </ul>
       <button class="toggle">Show labels</button>
+      <button class="toggle wtoggle">Wallpapers</button>
+      <ul class="wlinks">
+        <li><b>Annotated</b><a href="../wall/cocoon_wall_1080p.jpg" download>1080p</a> <a href="../wall/cocoon_wall_1440p.jpg" download>1440p</a></li>
+        <li><b>Framed</b><a href="../wall/cocoon_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/cocoon_framed_wall_1440p.jpg" download>1440p</a></li>
+      </ul>
     </div>
     <div>
     <p class="blurb">The Cocoon is a cloud of glowing hydrogen about 9 light-years across. It sits at the tip of a long lane of dark dust, where about 150 stars formed within the last million years or so. The heaviest, 15 times the Sun&#x27;s mass, shines with ultraviolet light that strips electrons from the hydrogen, which makes it glow red. Dust around the edge scatters the same starlight, and dust scatters blue light best, so the rim looks blue.</p>
-    </div>
-  </div>
-  <div class="walls">
-    <h3>Wallpapers</h3>
-    <div class="row">
-      <figure><a href="../wall/cocoon_wall_1440p.jpg"><img src="../img/cocoon_wall_prev.jpg" alt="Cocoon Nebula wallpaper, annotated" loading="lazy"></a><figcaption><b>Annotated</b><a href="../wall/cocoon_wall_1080p.jpg" download>1080p</a> <a href="../wall/cocoon_wall_1440p.jpg" download>1440p</a></figcaption></figure>
-      <figure><a href="../wall/cocoon_framed_wall_1440p.jpg"><img src="../img/cocoon_framed_wall_prev.jpg" alt="Cocoon Nebula wallpaper, framed" loading="lazy"></a><figcaption><b>Framed</b><a href="../wall/cocoon_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/cocoon_framed_wall_1440p.jpg" download>1440p</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -40,13 +38,15 @@
 <footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
 <div id="zoom"><img alt=""></div>
 <script>
-  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle:not(.wtoggle)'), z = document.getElementById('zoom');
   if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
   f.addEventListener('click', () => {
     z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
     z.style.display = 'flex';
   });
   z.addEventListener('click', () => z.style.display = 'none');
+  const wb = document.querySelector('.wtoggle'), wl = document.querySelector('.wlinks');
+  if (wb) wb.addEventListener('click', () => wl.classList.toggle('open'));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') z.style.display = 'none';
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;

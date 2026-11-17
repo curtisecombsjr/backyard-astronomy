@@ -23,16 +23,14 @@
         <li>Askar 120 · ASI2600MC Pro · no filter</li>
       </ul>
       <button class="toggle">Show labels</button>
+      <button class="toggle wtoggle">Wallpapers</button>
+      <ul class="wlinks">
+        <li><b>Annotated</b><a href="../wall/angel_wall_1080p.jpg" download>1080p</a> <a href="../wall/angel_wall_1440p.jpg" download>1440p</a></li>
+        <li><b>Framed</b><a href="../wall/angel_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/angel_framed_wall_1440p.jpg" download>1440p</a></li>
+      </ul>
     </div>
     <div>
     <p class="blurb">The Angel Nebula is a group of dust clouds lit by young stars, 2,700 light-years away. In 1966 the region was named Monoceros R2, the second group of starlit dust clouds found in that constellation. Its stars are three to four times hotter than the Sun. Their light bounces off the dust, which scatters blue light best, as the daytime sky does. At the centre, thick dust hides a cluster of at least 475 stars about a million years old.</p>
-    </div>
-  </div>
-  <div class="walls">
-    <h3>Wallpapers</h3>
-    <div class="row">
-      <figure><a href="../wall/angel_wall_1440p.jpg"><img src="../img/angel_wall_prev.jpg" alt="Angel Nebula wallpaper, annotated" loading="lazy"></a><figcaption><b>Annotated</b><a href="../wall/angel_wall_1080p.jpg" download>1080p</a> <a href="../wall/angel_wall_1440p.jpg" download>1440p</a></figcaption></figure>
-      <figure><a href="../wall/angel_framed_wall_1440p.jpg"><img src="../img/angel_framed_wall_prev.jpg" alt="Angel Nebula wallpaper, framed" loading="lazy"></a><figcaption><b>Framed</b><a href="../wall/angel_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/angel_framed_wall_1440p.jpg" download>1440p</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -40,13 +38,15 @@
 <footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
 <div id="zoom"><img alt=""></div>
 <script>
-  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle:not(.wtoggle)'), z = document.getElementById('zoom');
   if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
   f.addEventListener('click', () => {
     z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
     z.style.display = 'flex';
   });
   z.addEventListener('click', () => z.style.display = 'none');
+  const wb = document.querySelector('.wtoggle'), wl = document.querySelector('.wlinks');
+  if (wb) wb.addEventListener('click', () => wl.classList.toggle('open'));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') z.style.display = 'none';
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;

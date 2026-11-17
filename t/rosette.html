@@ -23,16 +23,14 @@
         <li>Askar 120 · ASI2600MC Pro + ASI2600MM Pro · L-Ultimate Hα/OIII</li>
       </ul>
       <button class="toggle">Show labels</button>
+      <button class="toggle wtoggle">Wallpapers</button>
+      <ul class="wlinks">
+        <li><b>Annotated</b><a href="../wall/rosette_wall_1080p.jpg" download>1080p</a> <a href="../wall/rosette_wall_1440p.jpg" download>1440p</a></li>
+        <li><b>Framed</b><a href="../wall/rosette_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/rosette_framed_wall_1440p.jpg" download>1440p</a></li>
+      </ul>
     </div>
     <div>
     <p class="blurb">The Rosette is a cloud of glowing gas about 100 light-years across. About 2 million years ago, the cluster NGC 2244 formed at its centre. The light and winds of its hottest stars pushed the gas outward, emptying the dark hole in the middle. X-ray telescopes show that hole is filled with gas heated to millions of degrees by those winds. Near the stars oxygen glows blue; farther out, hydrogen glows gold.</p>
-    </div>
-  </div>
-  <div class="walls">
-    <h3>Wallpapers</h3>
-    <div class="row">
-      <figure><a href="../wall/rosette_wall_1440p.jpg"><img src="../img/rosette_wall_prev.jpg" alt="Rosette Nebula wallpaper, annotated" loading="lazy"></a><figcaption><b>Annotated</b><a href="../wall/rosette_wall_1080p.jpg" download>1080p</a> <a href="../wall/rosette_wall_1440p.jpg" download>1440p</a></figcaption></figure>
-      <figure><a href="../wall/rosette_framed_wall_1440p.jpg"><img src="../img/rosette_framed_wall_prev.jpg" alt="Rosette Nebula wallpaper, framed" loading="lazy"></a><figcaption><b>Framed</b><a href="../wall/rosette_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/rosette_framed_wall_1440p.jpg" download>1440p</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -40,13 +38,15 @@
 <footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
 <div id="zoom"><img alt=""></div>
 <script>
-  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle:not(.wtoggle)'), z = document.getElementById('zoom');
   if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
   f.addEventListener('click', () => {
     z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
     z.style.display = 'flex';
   });
   z.addEventListener('click', () => z.style.display = 'none');
+  const wb = document.querySelector('.wtoggle'), wl = document.querySelector('.wlinks');
+  if (wb) wb.addEventListener('click', () => wl.classList.toggle('open'));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') z.style.display = 'none';
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;

@@ -23,16 +23,14 @@
         <li>Askar 120 · ASI2600MC Pro · no filter</li>
       </ul>
       <button class="toggle">Show labels</button>
+      <button class="toggle wtoggle">Wallpapers</button>
+      <ul class="wlinks">
+        <li><b>Annotated</b><a href="../wall/m78_wall_1080p.jpg" download>1080p</a> <a href="../wall/m78_wall_1440p.jpg" download>1440p</a></li>
+        <li><b>Framed</b><a href="../wall/m78_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/m78_framed_wall_1440p.jpg" download>1440p</a></li>
+      </ul>
     </div>
     <div>
     <p class="blurb">M78 is a cloud of dust about 4 light-years across, lit from inside by a pair of young stars. Their light bounces off the dust, and dust scatters blue light best, so M78 shines blue. The stars around it formed about 2 million years ago. Four in five still have the dusty disks that planets form in. The red glow at the right is Barnard&#x27;s Loop, the rim of a vast hollow cleared by Orion&#x27;s stars. M78&#x27;s cloud lies along the same rim.</p>
-    </div>
-  </div>
-  <div class="walls">
-    <h3>Wallpapers</h3>
-    <div class="row">
-      <figure><a href="../wall/m78_wall_1440p.jpg"><img src="../img/m78_wall_prev.jpg" alt="Messier 78 wallpaper, annotated" loading="lazy"></a><figcaption><b>Annotated</b><a href="../wall/m78_wall_1080p.jpg" download>1080p</a> <a href="../wall/m78_wall_1440p.jpg" download>1440p</a></figcaption></figure>
-      <figure><a href="../wall/m78_framed_wall_1440p.jpg"><img src="../img/m78_framed_wall_prev.jpg" alt="Messier 78 wallpaper, framed" loading="lazy"></a><figcaption><b>Framed</b><a href="../wall/m78_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/m78_framed_wall_1440p.jpg" download>1440p</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -40,13 +38,15 @@
 <footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
 <div id="zoom"><img alt=""></div>
 <script>
-  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle:not(.wtoggle)'), z = document.getElementById('zoom');
   if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
   f.addEventListener('click', () => {
     z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
     z.style.display = 'flex';
   });
   z.addEventListener('click', () => z.style.display = 'none');
+  const wb = document.querySelector('.wtoggle'), wl = document.querySelector('.wlinks');
+  if (wb) wb.addEventListener('click', () => wl.classList.toggle('open'));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') z.style.display = 'none';
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;

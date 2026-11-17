@@ -23,16 +23,14 @@
         <li>Askar 120 · ASI2600MC Pro · no filter</li>
       </ul>
       <button class="toggle">Show labels</button>
+      <button class="toggle wtoggle">Wallpapers</button>
+      <ul class="wlinks">
+        <li><b>Annotated</b><a href="../wall/m27_wall_1080p.jpg" download>1080p</a> <a href="../wall/m27_wall_1440p.jpg" download>1440p</a></li>
+        <li><b>Framed</b><a href="../wall/m27_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/m27_framed_wall_1440p.jpg" download>1440p</a></li>
+      </ul>
     </div>
     <div>
     <p class="blurb">The Dumbbell Nebula is the shell of gas thrown off by a dying star, about 3 light-years across. Charles Messier found it in 1764, the first of these dying-star shells ever seen. About 10,000 years ago the star puffed off its outer layers, leaving its hot bare core. That core&#x27;s ultraviolet light makes the gas glow: oxygen shines blue-green near the star, while hydrogen and nitrogen glow red at the edges, where the starlight is used up.</p>
-    </div>
-  </div>
-  <div class="walls">
-    <h3>Wallpapers</h3>
-    <div class="row">
-      <figure><a href="../wall/m27_wall_1440p.jpg"><img src="../img/m27_wall_prev.jpg" alt="Dumbbell Nebula wallpaper, annotated" loading="lazy"></a><figcaption><b>Annotated</b><a href="../wall/m27_wall_1080p.jpg" download>1080p</a> <a href="../wall/m27_wall_1440p.jpg" download>1440p</a></figcaption></figure>
-      <figure><a href="../wall/m27_framed_wall_1440p.jpg"><img src="../img/m27_framed_wall_prev.jpg" alt="Dumbbell Nebula wallpaper, framed" loading="lazy"></a><figcaption><b>Framed</b><a href="../wall/m27_framed_wall_1080p.jpg" download>1080p</a> <a href="../wall/m27_framed_wall_1440p.jpg" download>1440p</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -40,13 +38,15 @@
 <footer style="padding-top:60px">Putney, Georgia · Askar 120 on a ZWO AM5</footer>
 <div id="zoom"><img alt=""></div>
 <script>
-  const f = document.querySelector('.frame'), b = document.querySelector('.toggle'), z = document.getElementById('zoom');
+  const f = document.querySelector('.frame'), b = document.querySelector('.toggle:not(.wtoggle)'), z = document.getElementById('zoom');
   if (b) b.addEventListener('click', () => { f.classList.toggle('labels'); b.textContent = f.classList.contains('labels') ? 'Hide labels' : 'Show labels'; });
   f.addEventListener('click', () => {
     z.querySelector('img').src = f.classList.contains('labels') ? f.querySelector('.ann').src : f.querySelector('img').src;
     z.style.display = 'flex';
   });
   z.addEventListener('click', () => z.style.display = 'none');
+  const wb = document.querySelector('.wtoggle'), wl = document.querySelector('.wlinks');
+  if (wb) wb.addEventListener('click', () => wl.classList.toggle('open'));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') z.style.display = 'none';
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
